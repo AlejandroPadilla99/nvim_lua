@@ -9,7 +9,8 @@ return require('packer').startup(function(use)
 				requires = { {'nvim-lua/plenary.nvim'} }
 		}
 		use({ 'rose-pine/neovim', as = 'rose-pine' })
-
+	
+		-- schemas
 		vim.cmd('colorscheme rose-pine')
 
 		use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -39,5 +40,18 @@ return require('packer').startup(function(use)
 						{'L3MON4D3/LuaSnip'},             -- Required
 						{'rafamadriz/friendly-snippets'}, -- Optional
 				}
+		}
+
+		-- nvim tree 
+		use {
+				'nvim-tree/nvim-tree.lua',
+				requires = {'nvim-tree/nvim-web-devicons'},
+		}
+
+		--lualine
+		-- https://github.com/nvim-lualine/lualine.nvim
+		use {
+				'nvim-lualine/lualine.nvim',
+				requires = {'nvim-tree/nvim-web-devicons', opt = true }
 		}
 end)
